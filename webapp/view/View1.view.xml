@@ -1,0 +1,150 @@
+<mvc:View controllerName="zmmdyedbhim.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+	xmlns:Table="sap.ui.table"
+	xmlns:core="sap.ui.core"
+	xmlns:smartTable="sap.ui.comp.smarttable">
+    <Page id="page" title="{i18n>title}">
+        	<content>
+			<f:SimpleForm id="fSimpleForm1" layout="ResponsiveGridLayout" columnsL="3" columnsXL="3" columnsM="2" editable="true">
+				<f:content>
+					<core:Title id="title" />
+					<Label id="a12" text="Purchase Order" required="true" design="Bold" />
+					<Input width="150px"  editable="true" placeholder="Please Enter Purchase Order" id="idpuchaseorder" />
+					<Label id="a" text="Material Code"  design="Bold" />
+					<Input width="150px"  editable="true" placeholder="Please Enter Purchase Order" id="idmaterialcode" />
+					<Label id="1a2" text="Set Code" design="Bold" />
+					<Input width="150px"  editable="true" placeholder="Please Enter Purchase Order" id="idsetCode" />
+                    <core:Title id="title2"  />
+					<Label id="a13" text="Document Date" required="true" design="Bold" />
+					<DatePicker width="150px" editable="true" id="docdate" value="{oPayloadData1>/PostingDate}" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" placeholder="Please Select Document Date"  />
+                    <Label id="a10" text="Supplier" required="true" design="Bold" />
+					<Input  width="150px" editable="false" placeholder="Please Enter Supplier" id="idsuplier" />
+                    <Label id="PoDt" required="true" design="Bold" text="Posting Date" />
+					<DatePicker width="150px" editable="true" id="PostingDate" value="{oPayloadData>/PostingDate}" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" placeholder="Please Select Posting Date"  />
+					<core:Title  id="title3" />
+					<Label id="0a10" text="Supplier Name" required="true" design="Bold" />
+					<Input  width="150px" editable="false" placeholder="Please Enter Supplier" id="idsupliername" />
+                    <Label id="btn1"  />
+                    <Button id="go" text="GO" width="150px" press="onaddtable" ></Button>
+				</f:content>
+			</f:SimpleForm>
+			<Table:Table selectionBehavior="RowSelector"  id="table1" rows="{oTableDataModel>/aTableData}">
+				<Table:extension>
+					<OverflowToolbar id="greyreceiptscreen" style="Clear">
+                        <ToolbarSpacer id="idgreyreceiptscreen" />
+						<!-- <ToolbarSpacer id="idgreyreceiptscreen" />
+						<Label id="a16" text="Pipe Number" visible="{oGenericModel>/setchangeditable}" required="true" />
+						<ComboBox items="{modelname>/odataelementlist}" visible="{oGenericModel>/setchangeditable}" id="pipenumber" change="onselectpipe"  showSecondaryValues="true">
+							<items>
+								<core:ListItem id="a17" text="{modelname>Batch}" key="{modelname>Batch}" additionalText="{modelname>SupplierName}" />
+							</items>
+						</ComboBox> -->
+						<!-- <Button id="bt20" text="Add"  icon="sap-icon://add" tooltip="Add Table records"  press="addData"  /> -->
+						<!-- <Button id="Fd"  text="Delete" icon="sap-icon://delete" tooltip="Delete Table records" press="DeleteTableData"/> -->
+					</OverflowToolbar>
+				</Table:extension>
+				<Table:columns>
+					<Table:Column id="a18" width="4rem">
+						<Label id="Lab11" design="Bold" text="S.No."></Label>
+						<Table:template>
+							<Input id="a19" value="{oTableDataModel>sno}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a20" width="10rem">
+						<Label id="Lab10" design="Bold" text="Material Code"></Label>
+						<Table:template>
+							<Input id="a21" value="{oTableDataModel>matcode}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a22" width="11rem">
+						<Label id="Lab12" design="Bold" text="Material Description"></Label>
+						<Table:template>
+							<Input id="a23" value="{oTableDataModel>matdescrption}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a24" width="6rem">
+						<Label id="Lab29" design="Bold" text="Quantity"></Label>
+						<Table:template>
+							<Input id="a25" value="{oTableDataModel>quantity}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a26" width="6rem">
+						<Label id="Lab15" design="Bold" text="UOM"></Label>
+						<Table:template>
+							<Input id="a27" value="{oTableDataModel>uom}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a30" width="6rem">
+						<Label id="Lab13" design="Bold" text="Set Code"></Label>
+						<Table:template>
+							<Input id="a31" value="{oTableDataModel>setcode}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a32" width="6rem">
+						<Label id="Lab30" design="Bold" text="Plant"></Label>
+						<Table:template>
+							<Input id="a33" value="{oTableDataModel>plant}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a34" width="6rem">
+						<Label id="Lab37" design="Bold" text="S Loc"></Label>
+						<Table:template>
+							<Input id="a35" value="{oTableDataModel>sloc}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a36" width="7rem">
+						<Label id="Lab21" design="Bold" text="Sales Order"></Label>
+						<Table:template>
+							<Input id="a37" value="{oTableDataModel>salesorder}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a39" width="6rem">
+						<Label id="Lab22" design="Bold" text="SO Item"></Label>
+						<Table:template>
+							<Input value="{oTableDataModel>soitem}" id="a40" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a44" width="5rem">
+						<Label id="Lab23" design="Bold" text="Beam Party"></Label>
+						<Table:template>
+							<Input id="a45" value="{oTableDataModel>beamparty}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a46" width="6rem">
+						<Label id="Lab111" design="Bold" text="Grey Sort"></Label>
+						<Table:template>
+							<Input id="a47" value="{oTableDataModel>greysort}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+                    <Table:Column id="a198" width="6rem">
+						<Label id="Lab1" design="Bold" text="Purchase Order"></Label>
+						<Table:template>
+							<Input id="a90" value="{oTableDataModel>po}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+                    <Table:Column id="a89" width="6rem">
+						<Label id="Lab8" design="Bold" text="PO Item"></Label>
+						<Table:template>
+							<Input id="a4" value="{oTableDataModel>poitem}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+					<Table:Column id="a098" width="6rem">
+						<Label id="Lab789" design="Bold" text="Target Dispatch Qty"></Label>
+						<Table:template>
+							<Input id="a5678" value="{oTableDataModel>tdqty}" editable="false"/>
+						</Table:template>
+					</Table:Column>
+				</Table:columns>
+			</Table:Table>
+		</content>
+		<footer>
+			<Bar id="bar">
+				<contentRight>
+					<Button id="bt3" icon="sap-icon://save" text="Save" type="Emphasized" press="savedata" visible="{}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+    </Page>
+</mvc:View>
